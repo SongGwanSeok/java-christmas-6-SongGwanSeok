@@ -13,9 +13,9 @@ public class Order {
 
     public Order(String input) {
         List<String> splitInput = Utils.splitByDelimiter(input, HYPHEN);
+        validate(splitInput);
         String menuName = splitInput.get(0);
         String quantity = splitInput.get(1);
-        validate(menuName, quantity);
 
         this.menu = Menu.findMenuByName(menuName);
         this.quantity = Integer.parseInt(quantity);
@@ -42,9 +42,16 @@ public class Order {
         return menu.getType();
     }
 
-    private void validate(String menu, String quantity) {
-        isInMenu(menu);
-        isInRange(quantity);
+    private void validate(List<String> splitInput) {
+        isRightForm(splitInput);
+        isInMenu(splitInput.get(0));
+        isInRange(splitInput.get(1));
+    }
+
+    private void isRightForm(List<String> splitInput) {
+        if (splitInput.size() != 2) {
+            throw new IllegalArgumentException(WRONG_ORDER_ERROR);
+        }
     }
 
     private void isInMenu(String menu) {
@@ -54,7 +61,7 @@ public class Order {
     }
 
     private void isInRange(String quantity) {
-        if (!quantity.matches("^[1-9]\\d*$")) {
+        if (!quantity.matches("^[1-9]\\d{0,8}$")) {
             throw new IllegalArgumentException(WRONG_ORDER_ERROR);
         }
     }
