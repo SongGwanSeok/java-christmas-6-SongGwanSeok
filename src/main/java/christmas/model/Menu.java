@@ -1,5 +1,8 @@
 package christmas.model;
 
+import java.util.Objects;
+import java.util.stream.Stream;
+
 public enum Menu {
     MUSHROOM_SPOOF(MenuType.APPETIZER, "양송이수프", 6000),
     TAPAS(MenuType.APPETIZER, "타파스", 5500),
@@ -28,4 +31,17 @@ public enum Menu {
         this.price = price;
     }
 
+    public static Boolean isMenu(String menuName) {
+        return Stream.of(Menu.values())
+                .map(menu -> menu.name)
+                .toList()
+                .contains(menuName);
+    }
+
+    public static Menu findMenuByName(String name) {
+        return Stream.of(Menu.values())
+                .filter(menu -> Objects.equals(name, menu.name))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException(Order.WRONG_ORDER_ERROR));
+    }
 }
