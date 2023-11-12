@@ -21,6 +21,18 @@ public class Order {
         this.quantity = Integer.parseInt(quantity);
     }
 
+    public String getMenuName() {
+        return menu.name();
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public MenuType getMenuType() {
+        return getMenuType();
+    }
+
     private void validate(String menu, String quantity) {
         isInMenu(menu);
         isInRange(quantity);

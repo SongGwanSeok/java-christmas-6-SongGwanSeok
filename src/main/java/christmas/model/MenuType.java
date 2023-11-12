@@ -11,4 +11,8 @@ public enum MenuType {
     MenuType(String type) {
         this.type = type;
     }
+
+    public static Boolean isEqualType(MenuType target, MenuType comparator) {
+        return target.equals(comparator);
+    }
 }
