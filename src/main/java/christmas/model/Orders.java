@@ -26,6 +26,12 @@ public class Orders {
         return stringBuilder.toString();
     }
 
+    public int calculateTotalCost() {
+        return orders.stream()
+                .map(Order::calculateOrderPrice)
+                .reduce(0, Integer::sum);
+    }
+
     private static List<Order> makeOrders(String ordersInput) {
         List<String> strings = splitByDelimiter(ordersInput, COMMA);
         return strings.stream()

@@ -26,6 +26,10 @@ public class Order {
         return getMenuName() + " " + quantity + "개\n";
     }
 
+    public int calculateOrderPrice() {
+        return menu.getPrice() * quantity;
+    }
+
     public String getMenuName() {
         return menu.getName();
     }

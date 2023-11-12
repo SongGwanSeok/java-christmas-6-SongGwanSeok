@@ -39,6 +39,10 @@ public enum Menu {
         return type;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     public static Boolean isMenu(String menuName) {
         return Stream.of(Menu.values())
                 .map(menu -> menu.name)
