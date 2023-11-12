@@ -14,6 +14,7 @@ public class OrderController {
         OutputView.printWelcome();
         setVisitDate();
         setOrders();
+        OutputView.printOrders(orders.toString());
     }
 
     private void setVisitDate() {

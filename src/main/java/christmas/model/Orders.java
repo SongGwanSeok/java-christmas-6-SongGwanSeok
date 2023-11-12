@@ -19,6 +19,13 @@ public class Orders {
         this.orders = List.copyOf(orders);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        orders.forEach(stringBuilder::append);
+        return stringBuilder.toString();
+    }
+
     private static List<Order> makeOrders(String ordersInput) {
         List<String> strings = splitByDelimiter(ordersInput, COMMA);
         return strings.stream()

@@ -21,8 +21,13 @@ public class Order {
         this.quantity = Integer.parseInt(quantity);
     }
 
+    @Override
+    public String toString() {
+        return getMenuName() + " " + quantity + "개\n";
+    }
+
     public String getMenuName() {
-        return menu.name();
+        return menu.getName();
     }
 
     public int getQuantity() {
@@ -30,7 +35,7 @@ public class Order {
     }
 
     public MenuType getMenuType() {
-        return getMenuType();
+        return menu.getType();
     }
 
     private void validate(String menu, String quantity) {
