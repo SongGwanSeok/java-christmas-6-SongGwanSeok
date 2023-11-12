@@ -13,6 +13,10 @@ public class Date {
         this.day = Integer.parseInt(input);
     }
 
+    public int getDay() {
+        return day;
+    }
+
     private void validate(String day) {
         isEmpty(day);
         isInRange(day);
