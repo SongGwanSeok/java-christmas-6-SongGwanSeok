@@ -1,9 +1,13 @@
 package christmas.controller;
 
+import static christmas.view.OutputView.printDate;
+import static christmas.view.OutputView.printErrorMsg;
+import static christmas.view.OutputView.printOrders;
+import static christmas.view.OutputView.printWelcome;
+
 import christmas.model.Date;
 import christmas.model.Orders;
 import christmas.view.InputView;
-import christmas.view.OutputView;
 
 public class OrderController {
 
@@ -11,19 +15,29 @@ public class OrderController {
     private Orders orders;
 
     public void takeOrder() {
-        OutputView.printWelcome();
+        printWelcome();
         setVisitDate();
         setOrders();
-        OutputView.printDate(visitDate.getDay());
-        OutputView.printOrders(orders.toString());
+        printDate(visitDate.getDay());
+        printOrders(orders.toString());
     }
 
     private void setVisitDate() {
-        visitDate = new Date(InputView.readDate());
+        try {
+            visitDate = new Date(InputView.readDate());
+        } catch (IllegalArgumentException e) {
+            printErrorMsg(e.getMessage());
+            setVisitDate();
+        }
     }
 
     private void setOrders() {
-        orders = new Orders(InputView.readOrders());
+        try {
+            orders = new Orders(InputView.readOrders());
+        } catch (IllegalArgumentException e) {
+            printErrorMsg(e.getMessage());
+            setOrders();
+        }
     }
 
 }
