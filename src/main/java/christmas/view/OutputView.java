@@ -1,5 +1,7 @@
 package christmas.view;
 
+import christmas.util.Utils;
+
 public class OutputView {
 
     public static void printErrorMsg(String error) {
@@ -18,5 +20,11 @@ public class OutputView {
     public static void printOrders(String orders) {
         System.out.println("<주문 메뉴>");
         System.out.println(orders);
+    }
+
+    public static void printTotalCost(int totalCost) {
+        System.out.println("<할인 전 총주문 금액>");
+        System.out.println(Utils.changeKrCurrentFormat(totalCost));
+        System.out.println();
     }
 }

@@ -3,6 +3,7 @@ package christmas.controller;
 import static christmas.view.OutputView.printDate;
 import static christmas.view.OutputView.printErrorMsg;
 import static christmas.view.OutputView.printOrders;
+import static christmas.view.OutputView.printTotalCost;
 import static christmas.view.OutputView.printWelcome;
 
 import christmas.model.Date;
@@ -20,6 +21,7 @@ public class OrderController {
         setOrders();
         printDate(visitDate.getDay());
         printOrders(orders.toString());
+        printTotalCost(orders.calculateTotalCost());
     }
 
     private void setVisitDate() {
