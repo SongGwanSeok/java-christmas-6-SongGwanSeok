@@ -1,8 +1,8 @@
-package christmas.model;
+package christmas.model.order;
 
-import static christmas.model.MenuType.DRINK;
-import static christmas.model.MenuType.isEqualType;
-import static christmas.model.Order.WRONG_ORDER_ERROR;
+import static christmas.model.order.MenuType.DRINK;
+import static christmas.model.order.MenuType.isEqualType;
+import static christmas.model.order.Order.WRONG_ORDER_ERROR;
 import static christmas.util.Utils.splitByDelimiter;
 
 import java.util.List;

@@ -6,8 +6,8 @@ import static christmas.view.OutputView.printOrders;
 import static christmas.view.OutputView.printTotalCost;
 import static christmas.view.OutputView.printWelcome;
 
-import christmas.model.Date;
-import christmas.model.Orders;
+import christmas.model.order.Date;
+import christmas.model.order.Orders;
 import christmas.view.InputView;
 
 public class OrderController {

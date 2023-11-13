@@ -1,4 +1,4 @@
-package christmas.model;
+package christmas.model.order;
 
 import christmas.util.Utils;
 import java.util.List;

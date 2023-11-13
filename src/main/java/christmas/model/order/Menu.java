@@ -1,4 +1,4 @@
-package christmas.model;
+package christmas.model.order;
 
 import java.util.Objects;
 import java.util.stream.Stream;
