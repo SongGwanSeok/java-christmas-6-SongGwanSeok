@@ -8,6 +8,7 @@ public class Promotion {
 
     private final Present present;
     private final Discounts discounts;
+    private Badge badge;
 
     public Promotion(Present present, Discounts discounts) {
         this.present = present;
@@ -36,13 +37,21 @@ public class Promotion {
         if (present != null) {
             sumDiscount += present.calculatePrice();
         }
-
+        setBadge(sumDiscount);
         return sumDiscount;
     }
 
     public int calculateAfterDiscountCost(UserOrder userOrder) {
         Orders orders = userOrder.orders();
         return orders.calculateTotalCost() - calculateTotalDiscountCost(userOrder);
+    }
+
+    public Badge getBadge() {
+        return badge;
+    }
+
+    private void setBadge(int sumDiscount) {
+        badge = Badge.getBadge(sumDiscount);
     }
 
     private int calculateTotalDiscountCost(UserOrder userOrder) {
