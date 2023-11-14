@@ -5,7 +5,6 @@ import static christmas.util.Utils.makeNegative;
 
 import christmas.model.order.Orders;
 import christmas.model.order.UserOrder;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -15,6 +14,7 @@ public class Benefit {
 
     public static final String PRESENT_EVENT = "증정 이벤트";
     public static final String NON_BENEFIT = "없음\n";
+
     private final Map<String, Integer> details;
 
     public Benefit(Present present, UserOrder userOrder) {
@@ -61,13 +61,13 @@ public class Benefit {
         if (orders.calculateTotalCost() < DiscountPolicy.DISCOUNT_STANDARD) {
             return;
         }
-        Arrays.stream(Discount.values())
-                .forEach(discount -> {
-                    int discountCost = discount.calculate(userOrder);
-                    if (discountCost != 0) {
-                        details.put(discount.getName(), discountCost);
-                    }
-                });
+        for (Discount discount : Discount.values()) {
+            int discountCost = discount.calculate(userOrder);
+            if (discountCost == DiscountPolicy.ZERO_DISCOUNT) {
+                continue;
+            }
+            details.put(discount.getName(), discountCost);
+        }
     }
 
 }
