@@ -30,7 +30,7 @@ public class Promotion {
         return benefitDetails;
     }
 
-    private int calculateBenefitCost(UserOrder userOrder) {
+    public int calculateBenefitCost(UserOrder userOrder) {
         int sumDiscount = Arrays.stream(Discount.values())
                 .map(discount -> discount.calculate(userOrder))
                 .reduce(0, Integer::sum);
