@@ -2,7 +2,6 @@ package christmas.model.promotion;
 
 import christmas.model.order.Orders;
 import christmas.model.order.UserOrder;
-import java.util.Arrays;
 
 public class Promotion {
 
@@ -32,7 +31,7 @@ public class Promotion {
     }
 
     public int calculateBenefitCost(UserOrder userOrder) {
-        int sumDiscount = calculateTotalDiscountCost(userOrder);
+        int sumDiscount = discounts.calculateTotalDiscountCost(userOrder);
 
         if (present != null) {
             sumDiscount += present.calculatePrice();
@@ -43,7 +42,7 @@ public class Promotion {
 
     public int calculateAfterDiscountCost(UserOrder userOrder) {
         Orders orders = userOrder.orders();
-        return orders.calculateTotalCost() - calculateTotalDiscountCost(userOrder);
+        return orders.calculateTotalCost() - discounts.calculateTotalDiscountCost(userOrder);
     }
 
     public Badge getBadge() {
@@ -52,12 +51,6 @@ public class Promotion {
 
     private void setBadge(int sumDiscount) {
         badge = Badge.getBadge(sumDiscount);
-    }
-
-    private int calculateTotalDiscountCost(UserOrder userOrder) {
-        return Arrays.stream(Discount.values())
-                .map(discount -> discount.calculate(userOrder))
-                .reduce(0, Integer::sum);
     }
 
 }

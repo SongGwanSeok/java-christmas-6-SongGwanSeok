@@ -20,4 +20,10 @@ public class Discounts {
         discounts.forEach(discount -> stringBuilder.append(discount.makeString(data)));
         return stringBuilder.toString();
     }
+
+    public int calculateTotalDiscountCost(UserOrder userOrder) {
+        return discounts.stream()
+                .map(discount -> discount.calculate(userOrder))
+                .reduce(0, Integer::sum);
+    }
 }
