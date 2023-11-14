@@ -1,5 +1,6 @@
 package christmas.model.promotion;
 
+import christmas.model.order.UserOrder;
 import java.util.List;
 
 public class Discounts {
@@ -8,5 +9,15 @@ public class Discounts {
 
     public Discounts(List<Discount> discounts) {
         this.discounts = List.copyOf(discounts);
+    }
+
+    public Boolean isEmpty() {
+        return discounts.isEmpty();
+    }
+
+    public String makeBenefitDetails(UserOrder data) {
+        StringBuilder stringBuilder = new StringBuilder();
+        discounts.forEach(discount -> stringBuilder.append(discount.makeString(data)));
+        return stringBuilder.toString();
     }
 }
