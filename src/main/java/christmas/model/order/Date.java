@@ -4,8 +4,11 @@ public class Date {
 
     public static final String DATE_RULE = "^(3[0-1]|2\\d|1\\d|[1-9])$";
     public static final String WRONG_DATE_ERROR = "[ERROR] 유효하지 않은 날짜입니다. 다시 입력해 주세요.";
+    public static final int WEEK = 7;
+    public static final int FRIDAY = 1;
+    public static final int SATURDAY = 2;
+    public static final int SUNDAY = 3;
     public static final int CHRISTMAS_DATE = 25;
-    public static final int THIS_YEAR = 2023;
 
     private final int day;
 
@@ -23,15 +26,15 @@ public class Date {
     }
 
     public Boolean isWeekend() {
-        return findWeek() == 1 || findWeek() == 2;
+        return findWeek() == FRIDAY || findWeek() == SATURDAY;
     }
 
     public Boolean isStar() {
-        return findWeek() == 3 || day == CHRISTMAS_DATE;
+        return findWeek() == SUNDAY || day == CHRISTMAS_DATE;
     }
 
     private int findWeek() {
-        return day % 7;
+        return day % WEEK;
     }
 
     private void validate(String day) {

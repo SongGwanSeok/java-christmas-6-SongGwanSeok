@@ -10,6 +10,7 @@ import java.util.List;
 public class Orders {
 
     public static final String COMMA = ",";
+    public static final int MAX_TOTAL_QUANTITY = 20;
 
     private final List<Order> orders;
 
@@ -60,7 +61,7 @@ public class Orders {
     }
 
     private void isSumBelowLimit(List<Order> orders) {
-        if (getTotalQuantity(orders) > 20) {
+        if (getTotalQuantity(orders) > MAX_TOTAL_QUANTITY) {
             throw new IllegalArgumentException(WRONG_ORDER_ERROR);
         }
     }

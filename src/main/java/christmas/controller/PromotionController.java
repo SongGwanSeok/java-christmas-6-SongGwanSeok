@@ -1,6 +1,9 @@
 package christmas.controller;
 
 import static christmas.model.order.Menu.CHAMPAGNE;
+import static christmas.model.promotion.DiscountPolicy.DISCOUNT_STANDARD;
+import static christmas.model.promotion.DiscountPolicy.ZERO_DISCOUNT;
+import static christmas.model.promotion.Present.PRESENT_STANDARD;
 import static christmas.view.OutputView.printAfterDiscountCost;
 import static christmas.view.OutputView.printBadge;
 import static christmas.view.OutputView.printBenefitCost;
@@ -44,7 +47,7 @@ public class PromotionController {
     private Present getPresent() {
         Present present = null;
         Orders orders = userOrder.orders();
-        if (orders.calculateTotalCost() >= 120000) {
+        if (orders.calculateTotalCost() >= PRESENT_STANDARD) {
             present = new Present(CHAMPAGNE, 1);
         }
         return present;
@@ -52,7 +55,7 @@ public class PromotionController {
 
     private Discounts getDiscounts() {
         Orders orders = userOrder.orders();
-        if (orders.calculateTotalCost() < 10000) {
+        if (orders.calculateTotalCost() < DISCOUNT_STANDARD) {
             return new Discounts(Collections.emptyList());
         }
         return new Discounts(calculateDiscounts());
@@ -60,7 +63,7 @@ public class PromotionController {
 
     private List<Discount> calculateDiscounts() {
         return Arrays.stream(Discount.values())
-                .filter(discount -> discount.calculate(userOrder) != 0)
+                .filter(discount -> discount.calculate(userOrder) != ZERO_DISCOUNT)
                 .toList();
     }
 

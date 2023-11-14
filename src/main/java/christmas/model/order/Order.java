@@ -6,7 +6,11 @@ import java.util.List;
 public class Order {
 
     public static final String HYPHEN = "-";
+    public static final int MENU_INDEX = 0;
+    public static final int QUANTITY_INDEX = 1;
+    public static final int MENU_AND_QUANTITY_SIZE = 2;
     public static final String WRONG_ORDER_ERROR = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
+    public static final String QUANTITY_RULE = "^[1-9]\\d{0,8}$";
 
     private final Menu menu;
     private final int quantity;
@@ -14,8 +18,8 @@ public class Order {
     public Order(String input) {
         List<String> splitInput = Utils.splitByDelimiter(input, HYPHEN);
         validate(splitInput);
-        String menuName = splitInput.get(0);
-        String quantity = splitInput.get(1);
+        String menuName = splitInput.get(MENU_INDEX);
+        String quantity = splitInput.get(QUANTITY_INDEX);
 
         this.menu = Menu.findMenuByName(menuName);
         this.quantity = Integer.parseInt(quantity);
@@ -44,12 +48,12 @@ public class Order {
 
     private void validate(List<String> splitInput) {
         isRightForm(splitInput);
-        isInMenu(splitInput.get(0));
-        isInRange(splitInput.get(1));
+        isInMenu(splitInput.get(MENU_INDEX));
+        isInRange(splitInput.get(QUANTITY_INDEX));
     }
 
     private void isRightForm(List<String> splitInput) {
-        if (splitInput.size() != 2) {
+        if (splitInput.size() != MENU_AND_QUANTITY_SIZE) {
             throw new IllegalArgumentException(WRONG_ORDER_ERROR);
         }
     }
@@ -61,7 +65,7 @@ public class Order {
     }
 
     private void isInRange(String quantity) {
-        if (!quantity.matches("^[1-9]\\d{0,8}$")) {
+        if (!quantity.matches(QUANTITY_RULE)) {
             throw new IllegalArgumentException(WRONG_ORDER_ERROR);
         }
     }
