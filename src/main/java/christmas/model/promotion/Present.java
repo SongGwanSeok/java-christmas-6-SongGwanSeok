@@ -1,8 +1,5 @@
 package christmas.model.promotion;
 
-import static christmas.util.Utils.changeKrCurrentFormat;
-import static christmas.util.Utils.makeNegative;
-
 import christmas.model.order.Menu;
 
 public class Present {
@@ -21,10 +18,6 @@ public class Present {
     @Override
     public String toString() {
         return menu.getName() + " " + quantity + "개";
-    }
-
-    public String makeEventPriceToString() {
-        return "증정 이벤트: " + makeNegative(changeKrCurrentFormat(calculatePrice()));
     }
 
     public int calculatePrice() {
