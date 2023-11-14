@@ -1,6 +1,6 @@
 package christmas.model.promotion;
 
-import static christmas.model.order.Date.THIS_YEAR;
+import static christmas.model.promotion.DiscountPolicy.THIS_YEAR;
 
 import christmas.model.order.Date;
 import christmas.model.order.Orders;
