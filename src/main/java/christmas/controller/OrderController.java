@@ -12,6 +12,7 @@ import christmas.view.InputView;
 
 public class OrderController {
 
+    private PromotionController promotionController;
     private Date visitDate;
     private Orders orders;
 
@@ -22,6 +23,7 @@ public class OrderController {
         printDate(visitDate.getDay());
         printOrders(orders.toString());
         printTotalCost(orders.calculateTotalCost());
+        setPromotion();
     }
 
     private void setVisitDate() {
@@ -40,6 +42,10 @@ public class OrderController {
             printErrorMsg(e.getMessage());
             setOrders();
         }
+    }
+
+    private void setPromotion() {
+        promotionController = new PromotionController(visitDate, orders);
     }
 
 }
