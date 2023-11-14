@@ -1,5 +1,8 @@
 package christmas.view;
 
+import static christmas.util.Utils.changeKrCurrentFormat;
+import static christmas.util.Utils.makeNegative;
+
 import christmas.model.promotion.Present;
 import christmas.util.Utils;
 
@@ -39,4 +42,15 @@ public class OutputView {
         System.out.println("<혜택 내역>");
         System.out.println(benefitDetails);
     }
+
+    public static void printBenefitCost(int benefitCost) {
+        System.out.println("<총혜택 금액>");
+        String totalDiscountWithCurrent = changeKrCurrentFormat(benefitCost);
+        if (benefitCost != 0) {
+            totalDiscountWithCurrent = makeNegative(totalDiscountWithCurrent);
+        }
+        System.out.println(totalDiscountWithCurrent);
+        System.out.println();
+    }
+
 }
