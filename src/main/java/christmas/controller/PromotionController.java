@@ -6,41 +6,50 @@ import christmas.model.order.Date;
 import christmas.model.order.Orders;
 import christmas.model.order.UserOrder;
 import christmas.model.promotion.Discount;
+import christmas.model.promotion.Discounts;
 import christmas.model.promotion.Present;
-import java.util.ArrayList;
+import christmas.model.promotion.Promotion;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class PromotionController {
 
     private UserOrder userOrder;
-    private Present present;
-    private List<Discount> discounts;
+    private Promotion promotion;
 
     public PromotionController(Date visitDate, Orders orders) {
         userOrder = new UserOrder(visitDate, orders);
-        setPresent();
-        setDiscounts();
+        setPromotion();
     }
 
     public void printPromotion() {
+
     }
 
-    private void setPresent() {
+    private void setPromotion() {
+        this.promotion = new Promotion(getPresent(), getDiscounts());
+    }
+
+    private Present getPresent() {
+        Present present = null;
         Orders orders = userOrder.orders();
         if (orders.calculateTotalCost() >= 120000) {
             present = new Present(CHAMPAGNE, 1);
         }
-
+        return present;
     }
 
-    private void setDiscounts() {
+    private Discounts getDiscounts() {
         Orders orders = userOrder.orders();
         if (orders.calculateTotalCost() < 10000) {
-            this.discounts = new ArrayList<>();
-            return;
+            return new Discounts(Collections.emptyList());
         }
-        discounts = Arrays.stream(Discount.values())
+        return new Discounts(calculateDiscounts());
+    }
+
+    private List<Discount> calculateDiscounts() {
+        return Arrays.stream(Discount.values())
                 .filter(discount -> discount.calculate(userOrder) != 0)
                 .toList();
     }
