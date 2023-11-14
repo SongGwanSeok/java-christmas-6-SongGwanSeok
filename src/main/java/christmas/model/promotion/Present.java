@@ -24,7 +24,7 @@ public class Present {
     }
 
     public String makeEventPriceToString() {
-        return "증정 이벤트: " + makeNegative(changeKrCurrentFormat(calculatePrice())) + "\n";
+        return "증정 이벤트: " + makeNegative(changeKrCurrentFormat(calculatePrice()));
     }
 
     public int calculatePrice() {

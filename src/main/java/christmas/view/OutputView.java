@@ -53,6 +53,7 @@ public class OutputView {
     public static void printBenefitDetails(String benefitDetails) {
         System.out.println(BENEFIT_MESSAGE);
         System.out.println(benefitDetails);
+        System.out.println();
     }
 
     public static void printBenefitCost(int benefitCost) {
