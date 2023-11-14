@@ -1,6 +1,7 @@
 package christmas.controller;
 
 import static christmas.model.order.Menu.CHAMPAGNE;
+import static christmas.view.OutputView.printAfterDiscountCost;
 import static christmas.view.OutputView.printBenefitCost;
 import static christmas.view.OutputView.printBenefitDetails;
 import static christmas.view.OutputView.printPresent;
@@ -30,6 +31,7 @@ public class PromotionController {
         printPresent(promotion.present());
         printBenefitDetails(promotion.makeBenefitDetails(userOrder));
         printBenefitCost(promotion.calculateBenefitCost(userOrder));
+        printAfterDiscountCost(promotion.calculateAfterDiscountCost(userOrder));
     }
 
     private void setPromotion() {

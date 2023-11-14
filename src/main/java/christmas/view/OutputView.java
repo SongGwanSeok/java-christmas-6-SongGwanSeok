@@ -53,4 +53,9 @@ public class OutputView {
         System.out.println();
     }
 
+    public static void printAfterDiscountCost(int afterDiscountCost) {
+        System.out.println("<할인 후 예상 결제 금액>");
+        System.out.println(changeKrCurrentFormat(afterDiscountCost));
+        System.out.println();
+    }
 }
