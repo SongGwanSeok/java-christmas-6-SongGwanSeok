@@ -32,6 +32,12 @@ public class Orders {
                 .reduce(0, Integer::sum);
     }
 
+    public int findMenuTypeCount(MenuType targetType) {
+        return orders.stream().filter(order -> isEqualType(order.getMenuType(), targetType))
+                .map(Order::getQuantity)
+                .reduce(0, Integer::sum);
+    }
+
     private static List<Order> makeOrders(String ordersInput) {
         List<String> strings = splitByDelimiter(ordersInput, COMMA);
         return strings.stream()
