@@ -35,4 +35,8 @@ public class OutputView {
         System.out.println();
     }
 
+    public static void printBenefitDetails(String benefitDetails) {
+        System.out.println("<혜택 내역>");
+        System.out.println(benefitDetails);
+    }
 }
