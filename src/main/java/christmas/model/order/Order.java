@@ -6,7 +6,7 @@ import java.util.List;
 public class Order {
 
     public static final String HYPHEN = "-";
-    public static final String WRONG_ORDER_ERROR = "[Error] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
+    public static final String WRONG_ORDER_ERROR = "[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.";
 
     private final Menu menu;
     private final int quantity;
