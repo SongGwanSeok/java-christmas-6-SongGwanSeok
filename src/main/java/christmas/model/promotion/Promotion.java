@@ -1,5 +1,6 @@
 package christmas.model.promotion;
 
+import christmas.model.order.Orders;
 import christmas.model.order.UserOrder;
 import java.util.Arrays;
 
@@ -40,7 +41,12 @@ public class Promotion {
         return sumDiscount;
     }
 
-    public static Integer calculateTotalDiscountCost(UserOrder userOrder) {
+    public int calculateAfterDiscountCost(UserOrder userOrder) {
+        Orders orders = userOrder.orders();
+        return orders.calculateTotalCost() - calculateTotalDiscountCost(userOrder);
+    }
+
+    private int calculateTotalDiscountCost(UserOrder userOrder) {
         return Arrays.stream(Discount.values())
                 .map(discount -> discount.calculate(userOrder))
                 .reduce(0, Integer::sum);
