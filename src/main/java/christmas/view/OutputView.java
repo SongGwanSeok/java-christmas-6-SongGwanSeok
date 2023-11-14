@@ -1,5 +1,6 @@
 package christmas.view;
 
+import christmas.model.promotion.Present;
 import christmas.util.Utils;
 
 public class OutputView {
@@ -27,4 +28,11 @@ public class OutputView {
         System.out.println(Utils.changeKrCurrentFormat(totalCost));
         System.out.println();
     }
+
+    public static void printPresent(Present present) {
+        System.out.println("<증정 메뉴>");
+        System.out.println(present == null ? "없음" : present);
+        System.out.println();
+    }
+
 }

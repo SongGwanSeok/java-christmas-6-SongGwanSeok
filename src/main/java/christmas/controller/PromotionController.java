@@ -1,6 +1,7 @@
 package christmas.controller;
 
 import static christmas.model.order.Menu.CHAMPAGNE;
+import static christmas.view.OutputView.printPresent;
 
 import christmas.model.order.Date;
 import christmas.model.order.Orders;
@@ -24,7 +25,7 @@ public class PromotionController {
     }
 
     public void printPromotion() {
-
+        printPresent(promotion.present());
     }
 
     private void setPromotion() {
