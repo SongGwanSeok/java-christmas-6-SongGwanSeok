@@ -6,13 +6,13 @@ import christmas.model.order.UserOrder;
 public class Promotion {
 
     private final Present present;
-    private Benefit benefit;
-    private Badge badge;
+    private final Benefit benefit;
+    private final Badge badge;
 
     public Promotion(Present present, UserOrder userOrder) {
         this.present = present;
         this.benefit = new Benefit(present, userOrder);
-        setBadge();
+        this.badge = Badge.getBadge(benefit.calculateCost());
     }
 
     public Present present() {
@@ -37,10 +37,6 @@ public class Promotion {
 
     public Badge getBadge() {
         return badge;
-    }
-
-    private void setBadge() {
-        badge = Badge.getBadge(benefit.calculateCost());
     }
 
 }
