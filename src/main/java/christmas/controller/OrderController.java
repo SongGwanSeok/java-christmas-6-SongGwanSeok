@@ -24,6 +24,7 @@ public class OrderController {
         printOrders(orders.toString());
         printTotalCost(orders.calculateTotalCost());
         setPromotion();
+        promotionController.printPromotion();
     }
 
     private void setVisitDate() {

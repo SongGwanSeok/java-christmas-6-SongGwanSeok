@@ -23,6 +23,9 @@ public class PromotionController {
         setDiscounts();
     }
 
+    public void printPromotion() {
+    }
+
     private void setPresent() {
         Orders orders = userOrder.orders();
         if (orders.calculateTotalCost() >= 120000) {
