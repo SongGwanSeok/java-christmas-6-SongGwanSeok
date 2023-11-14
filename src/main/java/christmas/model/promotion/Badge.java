@@ -19,4 +19,14 @@ public enum Badge {
     public String toString() {
         return name;
     }
+
+    public static Badge getBadge(int totalDiscount) {
+        Badge findBadge = null;
+        for (Badge badge : values()) {
+            if (totalDiscount >= badge.price) {
+                findBadge = badge;
+            }
+        }
+        return findBadge;
+    }
 }
