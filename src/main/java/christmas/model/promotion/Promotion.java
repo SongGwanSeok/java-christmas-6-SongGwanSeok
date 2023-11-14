@@ -31,15 +31,19 @@ public class Promotion {
     }
 
     public int calculateBenefitCost(UserOrder userOrder) {
-        int sumDiscount = Arrays.stream(Discount.values())
-                .map(discount -> discount.calculate(userOrder))
-                .reduce(0, Integer::sum);
+        int sumDiscount = calculateTotalDiscountCost(userOrder);
 
         if (present != null) {
             sumDiscount += present.calculatePrice();
         }
 
         return sumDiscount;
+    }
+
+    public static Integer calculateTotalDiscountCost(UserOrder userOrder) {
+        return Arrays.stream(Discount.values())
+                .map(discount -> discount.calculate(userOrder))
+                .reduce(0, Integer::sum);
     }
 
 }
