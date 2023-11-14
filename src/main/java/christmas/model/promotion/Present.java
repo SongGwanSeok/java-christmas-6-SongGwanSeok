@@ -7,6 +7,8 @@ import christmas.model.order.Menu;
 
 public class Present {
 
+    public static final String NON_GIFT = "없음";
+
     private final Menu menu;
     private final int quantity;
 

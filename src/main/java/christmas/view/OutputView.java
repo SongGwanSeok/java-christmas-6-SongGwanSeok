@@ -35,7 +35,7 @@ public class OutputView {
 
     public static void printPresent(Present present) {
         System.out.println("<증정 메뉴>");
-        System.out.println(present == null ? "없음" : present);
+        System.out.println(present == null ? Present.NON_GIFT : present);
         System.out.println();
     }
 

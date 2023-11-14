@@ -21,7 +21,7 @@ public class Promotion {
 
     public String makeBenefitDetails(UserOrder userOrder) {
         if (discounts.isEmpty() && present == null) {
-            return "없음";
+            return Present.NON_GIFT;
         }
         String benefitDetails = discounts.makeBenefitDetails(userOrder);
         if (present != null) {
