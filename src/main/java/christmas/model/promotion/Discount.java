@@ -1,6 +1,7 @@
 package christmas.model.promotion;
 
 import static christmas.util.Utils.changeKrCurrentFormat;
+import static christmas.util.Utils.makeNegative;
 
 import christmas.model.order.UserOrder;
 import java.util.function.Function;
@@ -20,7 +21,7 @@ public enum Discount {
     }
 
     public String makeString(UserOrder userOrder) {
-        return name + ": " + changeKrCurrentFormat(calculate(userOrder)) + "\n";
+        return name + ": " + makeNegative(changeKrCurrentFormat(calculate(userOrder))) + "\n";
     }
 
     public int calculate(UserOrder data) {

@@ -1,6 +1,7 @@
 package christmas.model.promotion;
 
 import static christmas.util.Utils.changeKrCurrentFormat;
+import static christmas.util.Utils.makeNegative;
 
 import christmas.model.order.Menu;
 
@@ -20,7 +21,7 @@ public class Present {
     }
 
     public String makeEventPriceToString() {
-        return "증정 이벤트: " + changeKrCurrentFormat(calculatePrice()) + "\n";
+        return "증정 이벤트: " + makeNegative(changeKrCurrentFormat(calculatePrice())) + "\n";
     }
 
     public int calculatePrice() {
