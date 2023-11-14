@@ -3,6 +3,7 @@ package christmas.view;
 import static christmas.util.Utils.changeKrCurrentFormat;
 import static christmas.util.Utils.makeNegative;
 
+import christmas.model.promotion.Badge;
 import christmas.model.promotion.Present;
 import christmas.util.Utils;
 
@@ -58,4 +59,10 @@ public class OutputView {
         System.out.println(changeKrCurrentFormat(afterDiscountCost));
         System.out.println();
     }
+
+    public static void printBadge(Badge badge) {
+        System.out.println("<12월 이벤트 배지>");
+        System.out.println(badge);
+    }
+
 }

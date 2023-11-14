@@ -2,6 +2,7 @@ package christmas.controller;
 
 import static christmas.model.order.Menu.CHAMPAGNE;
 import static christmas.view.OutputView.printAfterDiscountCost;
+import static christmas.view.OutputView.printBadge;
 import static christmas.view.OutputView.printBenefitCost;
 import static christmas.view.OutputView.printBenefitDetails;
 import static christmas.view.OutputView.printPresent;
@@ -9,6 +10,7 @@ import static christmas.view.OutputView.printPresent;
 import christmas.model.order.Date;
 import christmas.model.order.Orders;
 import christmas.model.order.UserOrder;
+import christmas.model.promotion.Badge;
 import christmas.model.promotion.Discount;
 import christmas.model.promotion.Discounts;
 import christmas.model.promotion.Present;
@@ -32,6 +34,7 @@ public class PromotionController {
         printBenefitDetails(promotion.makeBenefitDetails(userOrder));
         printBenefitCost(promotion.calculateBenefitCost(userOrder));
         printAfterDiscountCost(promotion.calculateAfterDiscountCost(userOrder));
+        printBadge(Badge.getBadge(promotion.calculateBenefitCost(userOrder)));
     }
 
     private void setPromotion() {
