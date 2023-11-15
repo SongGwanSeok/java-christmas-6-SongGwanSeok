@@ -1,6 +1,6 @@
 package christmas.model.order;
 
-import christmas.util.Utils;
+import christmas.util.StringUtils;
 import java.util.List;
 
 public class Order {
@@ -16,7 +16,7 @@ public class Order {
     private final int quantity;
 
     public Order(String input) {
-        List<String> splitInput = Utils.splitByDelimiter(input, HYPHEN);
+        List<String> splitInput = StringUtils.splitByDelimiter(input, HYPHEN);
         validate(splitInput);
         String menuName = splitInput.get(MENU_INDEX);
         String quantity = splitInput.get(QUANTITY_INDEX);

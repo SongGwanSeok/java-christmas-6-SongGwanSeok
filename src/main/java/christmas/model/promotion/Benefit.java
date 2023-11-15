@@ -1,7 +1,7 @@
 package christmas.model.promotion;
 
-import static christmas.util.Utils.changeKrCurrentFormat;
-import static christmas.util.Utils.makeNegative;
+import static christmas.util.StringUtils.changeKrCurrentFormat;
+import static christmas.util.StringUtils.makeNegative;
 
 import christmas.model.order.Orders;
 import christmas.model.order.UserOrder;

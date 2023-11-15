@@ -1,11 +1,11 @@
 package christmas.view;
 
-import static christmas.util.Utils.changeKrCurrentFormat;
-import static christmas.util.Utils.makeNegative;
+import static christmas.util.StringUtils.changeKrCurrentFormat;
+import static christmas.util.StringUtils.makeNegative;
 
 import christmas.model.promotion.Badge;
 import christmas.model.promotion.Present;
-import christmas.util.Utils;
+import christmas.util.StringUtils;
 
 public class OutputView {
 
@@ -40,7 +40,7 @@ public class OutputView {
 
     public static void printTotalCost(int totalCost) {
         System.out.println(TOTAL_COST_MESSAGE);
-        System.out.println(Utils.changeKrCurrentFormat(totalCost));
+        System.out.println(StringUtils.changeKrCurrentFormat(totalCost));
         System.out.println();
     }
 

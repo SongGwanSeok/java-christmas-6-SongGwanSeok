@@ -3,7 +3,7 @@ package christmas.model.order;
 import static christmas.model.order.MenuType.DRINK;
 import static christmas.model.order.MenuType.isEqualType;
 import static christmas.model.order.Order.WRONG_ORDER_ERROR;
-import static christmas.util.Utils.splitByDelimiter;
+import static christmas.util.StringUtils.splitByDelimiter;
 
 import java.util.List;
 

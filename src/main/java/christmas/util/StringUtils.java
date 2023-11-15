@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
-public class Utils {
+public class StringUtils {
 
     private static final String DECIMAL_FORMAT = "#,###";
     private static final String KR_CURRENT = "원";
