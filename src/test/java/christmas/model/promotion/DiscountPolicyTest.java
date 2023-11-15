@@ -9,12 +9,9 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
 
 @DisplayName("할인_정책")
-@RunWith(MockitoJUnitRunner.class)
 class DiscountPolicyTest {
 
     UserOrder userOrder;
