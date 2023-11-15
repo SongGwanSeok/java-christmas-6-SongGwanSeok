@@ -14,7 +14,7 @@ public class Date {
 
     private final int day;
 
-    public Date(String input) {
+    public Date(String input) throws IllegalArgumentException {
         DateValidation.validate(input);
         this.day = Integer.parseInt(input);
     }

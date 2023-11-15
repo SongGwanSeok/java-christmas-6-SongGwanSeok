@@ -10,7 +10,7 @@ import java.util.List;
 
 public class OrdersValidation {
 
-    public static void validate(List<Order> orders) {
+    public static void validate(List<Order> orders) throws IllegalArgumentException {
         isDuplicate(orders);
         isSumBelowLimit(orders);
         isOnlyDrink(orders);

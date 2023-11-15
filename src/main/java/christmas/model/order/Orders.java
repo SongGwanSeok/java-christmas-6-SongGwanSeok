@@ -13,7 +13,7 @@ public class Orders {
 
     private final List<Order> orders;
 
-    public Orders(String ordersInput) {
+    public Orders(String ordersInput) throws IllegalArgumentException {
         List<Order> orders = makeOrders(ordersInput);
         OrdersValidation.validate(orders);
         this.orders = List.copyOf(orders);
