@@ -12,14 +12,14 @@ public class Promotion {
     public Promotion(Present present, UserOrder userOrder) {
         this.present = present;
         this.benefit = new Benefit(present, userOrder);
-        this.badge = Badge.getBadge(benefit.calculateCost());
+        this.badge = Badge.findBadgeByTotalDiscount(benefit.calculateCost());
     }
 
     public Present present() {
         return present;
     }
 
-    public String getBenefitDetails() {
+    public String makeDetailsToString() {
         if (benefit.isEmpty()) {
             return Benefit.NON_BENEFIT;
         }

@@ -32,7 +32,7 @@ public class Order {
     }
 
     public int calculateOrderPrice() {
-        return menu.getPrice() * quantity;
+        return menu.calculatePriceByQuantity(quantity);
     }
 
     public String getMenuName() {

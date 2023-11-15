@@ -20,7 +20,7 @@ public enum Badge {
         return name;
     }
 
-    public static Badge getBadge(int totalDiscount) {
+    public static Badge findBadgeByTotalDiscount(int totalDiscount) {
         Badge findBadge = null;
         for (Badge badge : values()) {
             if (totalDiscount >= badge.price) {

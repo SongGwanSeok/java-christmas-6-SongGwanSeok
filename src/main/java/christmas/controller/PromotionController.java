@@ -26,17 +26,17 @@ public class PromotionController {
 
     public void printPromotion() {
         printPresent(promotion.present());
-        printBenefitDetails(promotion.getBenefitDetails());
+        printBenefitDetails(promotion.makeDetailsToString());
         printBenefitCost(promotion.calculateBenefitCost());
         printAfterDiscountCost(promotion.calculateAfterDiscountCost(userOrder));
         printBadge(promotion.getBadge());
     }
 
     private void setPromotion() {
-        this.promotion = new Promotion(getPresent(), userOrder);
+        this.promotion = new Promotion(decidePresentByStandard(), userOrder);
     }
 
-    private Present getPresent() {
+    private Present decidePresentByStandard() {
         Present present = null;
         Orders orders = userOrder.orders();
         if (orders.calculateTotalCost() >= PRESENT_STANDARD) {

@@ -21,6 +21,6 @@ public class Present {
     }
 
     public int calculatePrice() {
-        return menu.getPrice() * quantity;
+        return menu.calculatePriceByQuantity(quantity);
     }
 }

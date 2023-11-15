@@ -38,8 +38,8 @@ public enum Menu {
         return type;
     }
 
-    public int getPrice() {
-        return price;
+    public int calculatePriceByQuantity(int quantity) {
+        return price * quantity;
     }
 
     public static Boolean isMenu(String menuName) {
