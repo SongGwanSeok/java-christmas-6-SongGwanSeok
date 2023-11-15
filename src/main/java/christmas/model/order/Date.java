@@ -1,5 +1,7 @@
 package christmas.model.order;
 
+import christmas.validate.DateValidation;
+
 public class Date {
 
     public static final String DATE_RULE = "^(3[0-1]|2\\d|1\\d|[1-9])$";
@@ -13,7 +15,7 @@ public class Date {
     private final int day;
 
     public Date(String input) {
-        validate(input);
+        DateValidation.validate(input);
         this.day = Integer.parseInt(input);
     }
 
@@ -37,20 +39,4 @@ public class Date {
         return day % WEEK;
     }
 
-    private void validate(String day) {
-        isEmpty(day);
-        isInRange(day);
-    }
-
-    private void isEmpty(String day) {
-        if (day.isEmpty()) {
-            throw new IllegalArgumentException(WRONG_DATE_ERROR);
-        }
-    }
-
-    private void isInRange(String day) {
-        if (!day.matches(DATE_RULE)) {
-            throw new IllegalArgumentException(WRONG_DATE_ERROR);
-        }
-    }
 }
