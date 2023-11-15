@@ -38,7 +38,7 @@ public class Orders {
                 .reduce(0, Integer::sum);
     }
 
-    private static List<Order> makeOrders(String ordersInput) {
+    private List<Order> makeOrders(String ordersInput) {
         List<String> strings = splitByDelimiter(ordersInput, COMMA);
         return strings.stream()
                 .map(Order::new)
