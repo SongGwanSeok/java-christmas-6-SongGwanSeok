@@ -1,5 +1,7 @@
 package christmas.model.order;
 
+import static java.lang.System.lineSeparator;
+
 import christmas.util.StringUtils;
 import christmas.validation.OrderValidation;
 import java.util.List;
@@ -28,7 +30,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return getMenuName() + " " + quantity + "개\n";
+        return getMenuName() + " " + quantity + "개" + lineSeparator();
     }
 
     public int calculateOrderPrice() {
