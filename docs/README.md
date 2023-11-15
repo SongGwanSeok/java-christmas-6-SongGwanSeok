@@ -78,7 +78,8 @@
 
 ### 🧭 도메인 구상도 🧭
 
-<img src="https://velog.velcdn.com/images/sgs980902/post/3b067ec0-5362-4c20-bd6a-5a7a7759d2d9/image.jpeg" width="80%">
+<img src="https://velog.velcdn.com/images/sgs980902/post/a26ea951-924e-426c-8a68-747b662f462c/image.png" width="80%">
+<img src="https://velog.velcdn.com/images/sgs980902/post/fedc84e0-80e8-4b9e-8eb8-4be1c1b1368a/image.png" width="80%">
 
 도메인은 크게 두가지 역할로 나누어집니다.
 
@@ -93,6 +94,6 @@
     - Badge: 총혜택 금액에 따라 부여되는 뱃지 모델
     - Discount: 할인 정책을 통해 각각의 할인 금액을 계산하는 모델
     - DiscountPolicy: 할인 정책이 들어있는 모델
-    - Discounts: 할인된 내역을 담는 모델
+    - Benefit: 혜택 내역을 담는 모델
     - Present: 총 주문 금액에 따라 부여되는 증정품 모델
     - Promotion: Present, Discounts, Badge를 관리하는 모델
