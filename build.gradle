@@ -9,6 +9,7 @@ repositories {
 
 dependencies {
     implementation 'com.github.woowacourse-projects:mission-utils:1.1.0'
+    implementation 'org.mockito:mockito-junit-jupiter:5.4.0'
 }
 
 java {
