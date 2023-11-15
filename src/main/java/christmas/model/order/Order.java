@@ -1,6 +1,7 @@
 package christmas.model.order;
 
 import christmas.util.StringUtils;
+import christmas.validate.OrderValidation;
 import java.util.List;
 
 public class Order {
@@ -15,9 +16,9 @@ public class Order {
     private final Menu menu;
     private final int quantity;
 
-    public Order(String input) {
+    public Order(String input) throws IllegalArgumentException {
         List<String> splitInput = StringUtils.splitByDelimiter(input, HYPHEN);
-        validate(splitInput);
+        OrderValidation.validate(splitInput);
         String menuName = splitInput.get(MENU_INDEX);
         String quantity = splitInput.get(QUANTITY_INDEX);
 
@@ -44,29 +45,5 @@ public class Order {
 
     public MenuType getMenuType() {
         return menu.getType();
-    }
-
-    private void validate(List<String> splitInput) {
-        isRightForm(splitInput);
-        isInMenu(splitInput.get(MENU_INDEX));
-        isInRange(splitInput.get(QUANTITY_INDEX));
-    }
-
-    private void isRightForm(List<String> splitInput) {
-        if (splitInput.size() != MENU_AND_QUANTITY_SIZE) {
-            throw new IllegalArgumentException(WRONG_ORDER_ERROR);
-        }
-    }
-
-    private void isInMenu(String menu) {
-        if (!Menu.isMenu(menu)) {
-            throw new IllegalArgumentException(WRONG_ORDER_ERROR);
-        }
-    }
-
-    private void isInRange(String quantity) {
-        if (!quantity.matches(QUANTITY_RULE)) {
-            throw new IllegalArgumentException(WRONG_ORDER_ERROR);
-        }
     }
 }
