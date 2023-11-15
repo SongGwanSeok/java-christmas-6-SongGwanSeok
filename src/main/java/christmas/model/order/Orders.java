@@ -3,7 +3,7 @@ package christmas.model.order;
 import static christmas.model.order.MenuType.isEqualType;
 import static christmas.util.StringUtils.splitByDelimiter;
 
-import christmas.validate.OrdersValidation;
+import christmas.validation.OrdersValidation;
 import java.util.List;
 
 public class Orders {

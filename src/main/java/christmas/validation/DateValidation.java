@@ -1,4 +1,4 @@
-package christmas.validate;
+package christmas.validation;
 
 import static christmas.model.order.Date.DATE_RULE;
 import static christmas.model.order.Date.WRONG_DATE_ERROR;

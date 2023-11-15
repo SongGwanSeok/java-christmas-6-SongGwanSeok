@@ -1,7 +1,7 @@
 package christmas.model.order;
 
 import christmas.util.StringUtils;
-import christmas.validate.OrderValidation;
+import christmas.validation.OrderValidation;
 import java.util.List;
 
 public class Order {

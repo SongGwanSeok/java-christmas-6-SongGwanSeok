@@ -1,4 +1,4 @@
-package christmas.validate;
+package christmas.validation;
 
 import static christmas.model.order.MenuType.DRINK;
 import static christmas.model.order.MenuType.isEqualType;

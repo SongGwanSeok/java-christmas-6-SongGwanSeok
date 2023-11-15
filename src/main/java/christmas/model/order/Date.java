@@ -1,6 +1,6 @@
 package christmas.model.order;
 
-import christmas.validate.DateValidation;
+import christmas.validation.DateValidation;
 
 public class Date {
 

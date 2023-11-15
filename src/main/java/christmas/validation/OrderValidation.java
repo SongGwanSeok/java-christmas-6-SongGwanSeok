@@ -1,4 +1,4 @@
-package christmas.validate;
+package christmas.validation;
 
 import static christmas.model.order.Order.MENU_AND_QUANTITY_SIZE;
 import static christmas.model.order.Order.MENU_INDEX;
