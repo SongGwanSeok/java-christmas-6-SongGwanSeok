@@ -11,6 +11,7 @@ import static christmas.view.PromotionOutputView.printPresent;
 import christmas.model.order.Date;
 import christmas.model.order.Orders;
 import christmas.model.order.UserOrder;
+import christmas.model.promotion.Benefit;
 import christmas.model.promotion.Present;
 import christmas.model.promotion.Promotion;
 
@@ -33,7 +34,9 @@ public class PromotionController {
     }
 
     private void setPromotion() {
-        this.promotion = new Promotion(decidePresentByStandard(), userOrder);
+        Present present = decidePresentByStandard();
+        Benefit benefit = new Benefit(present, userOrder);
+        this.promotion = new Promotion(present, benefit);
     }
 
     private Present decidePresentByStandard() {

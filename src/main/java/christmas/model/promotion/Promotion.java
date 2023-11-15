@@ -9,9 +9,9 @@ public class Promotion {
     private final Benefit benefit;
     private final Badge badge;
 
-    public Promotion(Present present, UserOrder userOrder) {
+    public Promotion(Present present, Benefit benefit) {
         this.present = present;
-        this.benefit = new Benefit(present, userOrder);
+        this.benefit = benefit;
         this.badge = Badge.findBadgeByTotalDiscount(benefit.calculateCost());
     }
 
