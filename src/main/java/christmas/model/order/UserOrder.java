@@ -3,7 +3,7 @@ package christmas.model.order;
 public record UserOrder(Date visitDate, Orders orders) {
 
     public Boolean checkBeforeChristmas() {
-        return visitDate.isBeforeChristmas();
+        return visitDate.isBeforeOrChristmas();
     }
 
     public int getDay() {

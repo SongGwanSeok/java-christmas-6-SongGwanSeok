@@ -23,7 +23,7 @@ public class Date {
         return day;
     }
 
-    public Boolean isBeforeChristmas() {
+    public Boolean isBeforeOrChristmas() {
         return this.day <= CHRISTMAS_DATE;
     }
 
