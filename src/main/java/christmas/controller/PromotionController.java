@@ -2,11 +2,11 @@ package christmas.controller;
 
 import static christmas.model.order.Menu.CHAMPAGNE;
 import static christmas.model.promotion.Present.PRESENT_STANDARD;
-import static christmas.view.OutputView.printAfterDiscountCost;
-import static christmas.view.OutputView.printBadge;
-import static christmas.view.OutputView.printBenefitCost;
-import static christmas.view.OutputView.printBenefitDetails;
-import static christmas.view.OutputView.printPresent;
+import static christmas.view.PromotionOutputView.printAfterDiscountCost;
+import static christmas.view.PromotionOutputView.printBadge;
+import static christmas.view.PromotionOutputView.printBenefitCost;
+import static christmas.view.PromotionOutputView.printBenefitDetails;
+import static christmas.view.PromotionOutputView.printPresent;
 
 import christmas.model.order.Date;
 import christmas.model.order.Orders;

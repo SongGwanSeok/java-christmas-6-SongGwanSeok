@@ -1,10 +1,10 @@
 package christmas.controller;
 
-import static christmas.view.OutputView.printDate;
-import static christmas.view.OutputView.printErrorMsg;
-import static christmas.view.OutputView.printOrders;
-import static christmas.view.OutputView.printTotalCost;
-import static christmas.view.OutputView.printWelcome;
+import static christmas.view.OrderOutputView.printDate;
+import static christmas.view.OrderOutputView.printErrorMsg;
+import static christmas.view.OrderOutputView.printOrders;
+import static christmas.view.OrderOutputView.printTotalCost;
+import static christmas.view.OrderOutputView.printWelcome;
 
 import christmas.model.order.Date;
 import christmas.model.order.Orders;
